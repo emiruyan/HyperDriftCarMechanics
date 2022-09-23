@@ -208,8 +208,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.181937, y: 1.149533, z: 4.8822346}
-  m_Center: {x: 0, y: 0.74328077, z: 0.03955424}
+  m_Size: {x: 2.181937, y: 1.3654385, z: 4.8822346}
+  m_Center: {x: 0, y: 0.63532805, z: 0.03955412}
 --- !u!1 &236014435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3833095599480037347, guid: 4aa5450ceaf2be547ad997e7d501f5ac, type: 3}
@@ -230,7 +230,9 @@ MonoBehaviour:
   carSpeed: 100
   maxSpeed: 150
   Traction: 1
-  steerAngle: 10
+  steerAngle: 30
+  lw: {fileID: 1842368507}
+  rw: {fileID: 1763597290}
 --- !u!4 &236014437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3833095599480037346, guid: 4aa5450ceaf2be547ad997e7d501f5ac, type: 3}
@@ -1014,6 +1016,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1763597290 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2326938312075754334, guid: 4aa5450ceaf2be547ad997e7d501f5ac, type: 3}
+  m_PrefabInstance: {fileID: 12982695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1842368507 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6363799133142588675, guid: 4aa5450ceaf2be547ad997e7d501f5ac, type: 3}
+  m_PrefabInstance: {fileID: 12982695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1909004696
 GameObject:
   m_ObjectHideFlags: 0
