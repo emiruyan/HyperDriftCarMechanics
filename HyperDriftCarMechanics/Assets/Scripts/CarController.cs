@@ -1,18 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float carSpeed;//Arabanın hızı
+    [SerializeField] private float maxSpeed;//Arabanın çıkabileceği maximum hız
+    [SerializeField] private float Traction;//Çekiş gücü
+
+    [SerializeField] private float steerAngle;
+
+    private float dragAmount=0.99f;//Sürtünme kuvveti 
+
+    private Vector3 _moveVec;
+
+
+    private void Update()
     {
-        
+        CarInputandMovement();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CarInputandMovement()
     {
+        // if (Input.GetMouseButton(0))//Mouse sol click ile hareket ettirme işlemini yaptık
+        // {
+        //     _moveVec += transform.forward * carSpeed * Time.deltaTime;
+        //     transform.position += _moveVec * Time.deltaTime;
+        // }
         
+        //Arabayı ileri doğru sürekli hareket ettirmek için değerler oluşturduk ve _moveVec'e atadık
+        _moveVec += transform.forward * carSpeed * Time.deltaTime;
+        transform.position += _moveVec * Time.deltaTime;//_moveVec'i deltaTime ile çarpıp transform'a atadık
+        
+        transform.Rotate(Vector3.up * Input.GetAxis("Horizontal")* steerAngle * Time.deltaTime *_moveVec.magnitude);
+
+        _moveVec *= dragAmount;
+        _moveVec = Vector3.ClampMagnitude(_moveVec, maxSpeed);//Arabanın hızını sınırladık
+        _moveVec = Vector3.Lerp(_moveVec.normalized, transform.forward, Traction * Time.deltaTime) * _moveVec.magnitude; 
+
+
     }
 }
